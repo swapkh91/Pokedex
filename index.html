@@ -1,0 +1,85 @@
+<!doctype html>
+
+<html lang = "en" ng-app = "Pokedex">
+<head>
+<title>Pokedex</title>
+<meta charset="UTF-8">
+<link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+	<h1 align = "center">Pokedex</h1>
+
+	<div class = "main" ng-controller = "pokeCntrl">
+		<button type="button" class="btn btn-default" ng-click="checkCollapse1()">Search Pokemon by Name</button>
+		<hr>
+		<div collapse="isCollapsed1">
+			<div class="well well-lg">
+				<form class = "mainForm" name = "frm">
+					<input class = "input" type="text" ng-model = "pokeName" name="pokeName" size="30" placeholder="Enter pokemon name" required />
+    				<button ng-click = "searchPokeName()" type="button" class="btn btn-default">Search</button>
+  				</form> 
+  				<div ng-show = "pokeImg">
+  					<img class="poke-img" src="{{pokeImg}}" style = "height: 200px;">
+  					<div>
+  						<h2>{{pokemon.name}}</h2>
+  						<p>
+  							Types:<br>
+  							<ul>
+            					<li  ng-repeat="type in pokemon.types">
+                					<span>{{type.name}}</span>
+            					</li>
+        					</ul>
+  							Species: {{pokemon.species}}<br>
+  							Height: {{pokemon.height}}<br>
+  						   	HP: {{pokemon.hp}}<br>
+  						   	Pokemon ID: {{pokemon.pkdx_id}}<br>
+  						   	Speed: {{pokemon.speed}}<br>
+  						   	Evolution: {{pokemon.evolutions[0].to}}<br>
+  						   	Description: {{pokemonDesc.description}}
+  						</p>
+  					</div>
+  				</div> 
+			</div> 
+		</div>
+		<button type="button" class="btn btn-default" ng-click="checkCollapse2()">Search Pokemon by ID</button>
+		<hr>
+		<div collapse="isCollapsed2">
+			<div class="well well-lg">
+				<form class = "mainForm" name = "frm">
+					<input class = "input" type="number" ng-model = "pokeID" name="pokeID" size="30" placeholder="Enter pokemon ID" required />
+    				<button ng-click = "searchPokeID()" type="button" class="btn btn-default">Search</button>
+  				</form>
+  				<div ng-show = "pokeImg">
+  					<img class="poke-img" src="{{pokeImg}}" style = "height: 200px;">
+  					<div>
+  						<h2>{{pokemon.name}}</h2>
+  						<p>
+  							Types:<br>
+  							<ul>
+            					<li  ng-repeat="type in pokemon.types">
+                					<span>{{type.name}}</span>
+            					</li>
+        					</ul>
+  							Species: {{pokemon.species}}<br>
+  							Height: {{pokemon.height}}<br>
+  						   	HP: {{pokemon.hp}}<br>
+  						   	Pokemon ID: {{pokemon.pkdx_id}}<br>
+  						   	Speed: {{pokemon.speed}}<br>
+  						   	Evolution: {{pokemon.evolutions[0].to}}<br>
+  						   	Description: {{pokemonDesc.description}}
+  						</p>
+  					</div>
+  				</div>  
+			</div> 
+		</div>
+	</div>
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-animate.js"></script>
+    <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.13.3.js"></script>
+    <script src = "js/services.js" type="text/javascript"></script>
+</body>
+
+</html>
